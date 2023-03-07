@@ -21,7 +21,7 @@ export const createBooks = catchasyncError(async (req,res,next) => {
     const imagesLinks = [];
     
     for (let i = 0; i < images.length; i++) {
-        console.log(i);
+       // console.log(i);
         //console.log(images[i]);
         const result = await cloudinary.v2.uploader.upload(images[i], {
           folder: "products",
@@ -43,7 +43,7 @@ export const createBooks = catchasyncError(async (req,res,next) => {
    
 
     res.status(201).json({success:true, book});
-    console.log("success!");
+   // console.log("success!");
 });
 
 
