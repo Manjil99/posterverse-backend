@@ -7,7 +7,7 @@ import catchAsyncError from "../middleware/catchAsyncErrors.js";
 export const newOrder = catchAsyncError(
     async (req,res,next) => {
         const {shippingInfo , orderedItems, paymentInfo, itemsPrice, taxPrice, shippingPrice, totalPrice} = req.body;
-        //console.log(orderedItems);
+        console.log(orderedItems);
         const order = new Order({
             shippingInfo , 
             orderedItems, 
@@ -50,7 +50,6 @@ export const getSingleOrder = catchAsyncError(
 export const getmyOrders = catchAsyncError(
     async (req,res,next) => {
 
-      //  console.log(1); 
         const orders = await Order.find({user: req.user._id});
 
         if(!orders)return next(new ErrorHandler("Order not found with this id",404));
